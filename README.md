@@ -1,2 +1,3 @@
-# portfolio
-Zico's personal portfolio website
+# Portfolio
+
+Zico's personal portfolio website.
