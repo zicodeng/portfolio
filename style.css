@@ -1,0 +1,100 @@
+/*=============================================
+=            Reset Browser Default            =
+=============================================*/
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+/*=====  End of Reset Browser Default  ======*/
+
+/*=============================================
+=                Custom Style                 =
+=============================================*/
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+/*----------  Header  ----------*/
+header {
+    height: 100vh;
+    background-color: #ed5565;
+}
+
+.face {
+    height: 100%;
+    background-color: #5d9cec;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.eye {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+    background-color: white;
+    margin: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pupil {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.mouth-container {
+    position: absolute;
+    bottom: 0;
+}
+
+/*----------  Sections  ----------*/
+
+section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/*----------  Section About  ----------*/
+
+.about {
+    background-image: url('./images/about.jpg');
+}
+
+/*----------  Section Education  ----------*/
+
+.education {
+    background-image: url('./images/education.jpg');
+}
+
+.me {
+    height: 200px;
+    width: 80px;
+    background-color: black;
+}
+
+/*=====  End of Custom Style  ======*/
