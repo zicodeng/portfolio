@@ -1,6 +1,8 @@
 $(document).ready(() => {
     console.log("Thanks for visiting Zico's personal portfolio website!");
 
+    AOS.init();
+
     const $face = $('.face');
 
     handleScrollWindow($face);
@@ -78,4 +80,49 @@ const faceInteractions = $face => {
     });
 };
 
-/*=====  End of Eyes Follow Mouse Movement  ======*/
+/*=====  End of Face Interactions  ======*/
+
+/*=============================================
+=            Floating Hearts                  =
+=============================================*/
+
+const love = setInterval(() => {
+    const num = Math.floor(Math.random() * 40) + 1;
+    const size = Math.floor(Math.random() * 65) + 10;
+    const left = Math.floor(Math.random() * 100) + 1;
+    const color = Math.floor(Math.random() * 25) + 100;
+    const duration = Math.floor(Math.random() * 5) + 5;
+
+    $('.floating-hearts').append(
+        `<div
+        class='heart'
+        style='width: ${size}px; height: ${size}px; left: ${left}%; background: rgba(255, ${color -
+            25}, ${color}, 1); animation: love ${duration}s ease'>
+        </div>`
+    );
+
+    // Create different variations
+    $('.floating-hearts').append(
+        `<div
+        class='heart'
+        style='width: ${size - 10}px; height: ${size - 10}px; left: ${left +
+            num}%; background: rgba(255, ${color - 25}, ${color +
+            25}, 1); animation: love ${duration + 5}s ease'>
+        </div>`
+    );
+
+    // Remove rendered hearts if they float out of the page or too large
+    $('.heart').each(function() {
+        const top = $(this)
+            .css('top')
+            .replace('px', '');
+        const width = $(this)
+            .css('width')
+            .replace('px', '');
+        if (parseInt(top) <= -100 || parseInt(width) >= 150) {
+            $(this).remove();
+        }
+    });
+}, 500);
+
+/*=====  End of Floating Heart  ======*/
