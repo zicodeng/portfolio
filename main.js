@@ -12,6 +12,7 @@ $(document).ready(() => {
     const $sectionProjects = $('.projects');
     const $sectionContact = $('.contact');
 
+    handleResizeWindow();
     handleScrollWindow(
         $face,
         $dialogue,
@@ -25,7 +26,34 @@ $(document).ready(() => {
 });
 
 /*=============================================
-=       Handle Window Scroll Event            =
+=         Handle Window Resize Event          =
+=============================================*/
+
+const handleResizeWindow = () => {
+    // Used to debounce window resize event.
+    let resizeTimer;
+    let windowWidth = window.innerWidth;
+    alertSmallWindow(windowWidth);
+    $(window).resize(() => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            alertSmallWindow(this.innerWidth);
+        }, 250);
+    });
+};
+
+const alertSmallWindow = windowWidth => {
+    if (windowWidth < 1400) {
+        window.alert(
+            `Your current browser window size (${windowWidth}px) is too small. To get the best experience viewing this webpage, please increase your browser window size over 1400px.`
+        );
+    }
+};
+
+/*=====  End of Handle Window Resize Event  ======*/
+
+/*=============================================
+=          Handle Window Scroll Event         =
 =============================================*/
 
 const handleScrollWindow = (
@@ -161,7 +189,7 @@ const removeDialogue = $dialogue => {
 /*=====  End of Handle Window Scroll Event  ======*/
 
 /*=============================================
-=            Face Interactions                =
+=              Face Interactions              =
 =============================================*/
 
 const faceInteractions = $face => {
@@ -186,7 +214,7 @@ const faceInteractions = $face => {
 /*=====  End of Face Interactions  ======*/
 
 /*=============================================
-=            Floating Hearts                  =
+=              Floating Hearts                =
 =============================================*/
 
 const love = setInterval(() => {

@@ -38,6 +38,7 @@ body {
     min-height: 100%;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    overflow-x: hidden;
 }
 
 /*----------  Header  ----------*/
@@ -79,6 +80,25 @@ header {
     bottom: 0;
 }
 
+/*----------  Mosaic Layout  ----------*/
+.mosaic-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.mosaic-item-sm {
+    grid-column: span 1;
+}
+
+.mosaic-item-md {
+    grid-column: span 2;
+}
+
+.mosaic-item-lg {
+    grid-column: span 3;
+}
+
 /*----------  Sections  ----------*/
 section {
     height: 100vh;
@@ -94,7 +114,7 @@ section {
 .dialogue-bubble {
     padding: 30px;
     background-color: white;
-    font-size: 30px;
+    font-size: 28px;
     border-radius: 100px;
     text-transform: uppercase;
     font-weight: bold;
@@ -106,6 +126,12 @@ section {
     transform: translate(100px, 0) scale(0.4);
     opacity: 0;
     transition: all 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media only screen and (max-width: 1200px) {
+    .dialogue-bubble {
+        font-size: 26px;
+    }
 }
 
 .dialogue-bubble::after {
@@ -131,13 +157,25 @@ section {
 }
 
 .content-box--left {
-    left: 10%;
+    left: 6%;
     margin-top: -100px;
 }
 
+@media only screen and (max-width: 1600px) {
+    .content-box--left {
+        left: 50px;
+    }
+}
+
 .content-box--right {
-    right: 10%;
+    right: 6%;
     margin-top: 100px;
+}
+
+@media only screen and (max-width: 1600px) {
+    .content-box--right {
+        right: 50px;
+    }
 }
 
 /*----------  About  ----------*/
@@ -197,7 +235,7 @@ section {
     justify-content: center;
     background-color: white;
     color: black;
-    padding: 10px;
+    padding: 10px 15px;
     flex-grow: 1;
 }
 
@@ -218,14 +256,24 @@ section {
     background-image: url('./images/projects.png');
 }
 
+.projects > .content-box--left {
+    text-align: left;
+}
+
+.projects > .content-box--right {
+    text-align: right;
+}
+
 .projects > .content-box > a {
-    padding: 20px 40px;
+    height: 75px;
     margin: 10px;
     border: 2px solid white;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     overflow: hidden;
-    transition: 0.5s ease-in-out;
+    transition: all 0.5s ease;
 }
 
 .projects > .content-box > a:hover {
@@ -241,7 +289,7 @@ section {
     left: 0;
     background-color: white;
     transform: translate(-100%, 0);
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease;
     z-index: -1;
 }
 
@@ -256,9 +304,23 @@ section {
 
 .social-media {
     position: absolute;
-    left: 10%;
     align-self: center;
+    margin-left: -650px;
     z-index: 999;
+}
+
+@media only screen and (max-width: 1600px) {
+    .social-media {
+        transform: scale(0.8);
+        margin-left: -600px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .social-media {
+        transform: scale(0.7);
+        margin-left: -500px;
+    }
 }
 
 .social-media > li {
