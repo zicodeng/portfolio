@@ -3,9 +3,24 @@ $(document).ready(() => {
 
     AOS.init();
 
+    // Capture DOM nodes only once when DOM is ready.
     const $face = $('.face');
+    const $dialogue = $('.dialogue-bubble');
+    const $sectionAbout = $('.about');
+    const $sectionEducation = $('.education');
+    const $sectionEmployment = $('.employment');
+    const $sectionProjects = $('.projects');
+    const $sectionContact = $('.contact');
 
-    handleScrollWindow($face);
+    handleScrollWindow(
+        $face,
+        $dialogue,
+        $sectionAbout,
+        $sectionEducation,
+        $sectionEmployment,
+        $sectionProjects,
+        $sectionContact
+    );
     faceInteractions($face);
 });
 
@@ -13,14 +28,31 @@ $(document).ready(() => {
 =       Handle Window Scroll Event            =
 =============================================*/
 
-const handleScrollWindow = $face => {
+const handleScrollWindow = (
+    $face,
+    $dialogue,
+    $sectionAbout,
+    $sectionEducation,
+    $sectionEmployment,
+    $sectionProjects,
+    $sectionContact
+) => {
     // Used to determine scroll direction
     let prevScrollTop = 0;
 
     $(window).scroll(e => {
         const currScrollTop = $(this).scrollTop();
 
-        changeFaceRadius($face, currScrollTop);
+        changeFaceRadius(currScrollTop, $face);
+        showSectionDialogue(
+            currScrollTop,
+            $dialogue,
+            $sectionAbout,
+            $sectionEducation,
+            $sectionEmployment,
+            $sectionProjects,
+            $sectionContact
+        );
 
         prevScrollTop = currScrollTop;
     });
@@ -31,7 +63,7 @@ const isScrollingDown = (prevScrollTop, currScrollTop) =>
     currScrollTop > prevScrollTop;
 
 /*----------  Change Face Radius  ----------*/
-const changeFaceRadius = ($face, currScrollTop) => {
+const changeFaceRadius = (currScrollTop, $face) => {
     const faceHeight = $face.height();
 
     // Change face radius only if face (header section) is visible
@@ -53,6 +85,77 @@ const getCurrFaceRadius = (faceHeight, currScrollTop) => {
     const rate = 0.06;
     const offset = 50;
     return `${(faceHeight - currScrollTop - offset) * rate}%`;
+};
+
+/*---------- Show Section Dialogue  ----------*/
+const showSectionDialogue = (
+    currScrollTop,
+    $dialogue,
+    $sectionAbout,
+    $sectionEducation,
+    $sectionEmployment,
+    $sectionProjects,
+    $sectionContact
+) => {
+    const offset = 300;
+    switch (true) {
+        // Header
+        case currScrollTop < $sectionAbout.offset().top - 150:
+            removeDialogue($dialogue);
+            break;
+
+        // Section About
+        case currScrollTop >= $sectionAbout.offset().top - offset &&
+            currScrollTop < $sectionEducation.offset().top - offset:
+            createDialogue($dialogue, 'Do you wanna know me?', '#ED5565');
+            break;
+
+        // Section Education
+        case currScrollTop >= $sectionEducation.offset().top - offset &&
+            currScrollTop < $sectionEmployment.offset().top - offset:
+            createDialogue($dialogue, 'How do I become smarter?', '#48CFAD');
+            break;
+
+        // Section Employment
+        case currScrollTop >= $sectionEmployment.offset().top - offset &&
+            currScrollTop < $sectionProjects.offset().top - offset:
+            createDialogue($dialogue, 'Play hard, work harder!', '#FFCE54');
+            break;
+
+        // Section Projects
+        case currScrollTop >= $sectionProjects.offset().top - offset &&
+            currScrollTop < $sectionContact.offset().top - offset:
+            createDialogue(
+                $dialogue,
+                'Check out my awesome projects!',
+                '#AC92EC'
+            );
+            break;
+
+        // Section Contact
+        case currScrollTop >= $sectionContact.offset().top - offset:
+            removeDialogue($dialogue);
+            break;
+    }
+};
+
+const createDialogue = ($dialogue, text, color) => {
+    if ($dialogue.text() !== text) {
+        $dialogue.text(text).css('color', color);
+    }
+    if (!parseInt($dialogue.css('opacity'))) {
+        $dialogue.css({
+            transform: 'translate(0, 0) scale(1)',
+            opacity: '1'
+        });
+    }
+};
+
+const removeDialogue = $dialogue => {
+    $dialogue.css({
+        transform: 'translate(100px, 0) scale(.4)',
+        opacity: '0'
+    });
 };
 
 /*=====  End of Handle Window Scroll Event  ======*/

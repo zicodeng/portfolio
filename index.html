@@ -24,34 +24,138 @@
                 <div class="pupil" id="pupil-right"></div>
             </div>
             <svg class="mouth-container" width="500" height="500">
-                <path id="mouth" d="M100,250 Q250,150 400,250" fill="none" stroke="#000" stroke-width="5px" dur="10s" />
+                <path id="mouth" d="M100,250 Q250,150 400,250" fill="none" stroke="#000" stroke-width="5px" />
             </svg>
         </div>
     </header>
-    <main>
-        <section class="about"></section>
-        <section class="education"></section>
-        <section class="employment"></section>
-        <section class="projects"></section>
+    <main id="main">
+        <div class="dialogue-bubble"></div>
+        <section class="about">
+            <div class="content-box content-box--left" data-aos="fade-down-right" data-aos-offset="500">
+                <p>
+                    Hi! My name is Zike Deng, preferably to be called Zico. I graduated from the University of Washington with a major in Informatics.
+                    The majority of my time at college was spent on learning software development and refining user experience.
+                    I now work as a professional software engineer in IT industry.
+                </p>
+            </div>
+            <div class="content-box content-box--right" data-aos="fade-up-left" data-aos-offset="400">
+                <p>"Carpe Diem"</p>
+                <p>"I aim to save people from the overwhelming tsunami of information."</p>
+                <p>
+                    "Do what you always want to do, say what you always want to say, and be the person you always want to be, because those who
+                    matter don't mind, and those who mind don't matter."
+                </p>
+            </div>
+        </section>
+        <section class="education">
+            <div class="content-box content-box--left" data-aos="fade-down-right" data-aos-offset="500">
+                <h2>University of Washington</h2>
+                <p>2014-2018</p>
+                <p>
+                    Founded in 1861, the University of Washington is one of the oldest state-supported institutions of higher education on the
+                    West Coast and is one of the preeminent research universities in the world. The University of Washington
+                    is ranked No. 13 in the world - No. 3 among public universities - on the
+                    <a href="http://www.shanghairanking.com/ARWU2017.html" target="_blank">2017 Academic Ranking of World Universities.</a>
+                </p>
+            </div>
+            <div class="content-box content-box--right" data-aos="fade-up-left" data-aos-offset="400">
+                <h2>YALI High School</h2>
+                <p>2011-2014</p>
+                <p>
+                    Yali is a senior high school located in Changsha, Hunan Province in the People's Republic of China. It is a first-tier key
+                    school in Hunan's public school system and is one of the most selective schools in the nation. In 2007,
+                    Yali was included in the "Top 100 Schools" list published by the Top One-Hundred Schools website in China.
+                </p>
+            </div>
+        </section>
+        <section class="employment">
+            <div class="content-box content-box--left">
+                <ul>
+                    <li class="bar" class="content-box content-box--left" data-aos="fade-right" data-aos-offset="500" data-aos-delay="100">
+                        <img src="./images/uw-logo.png" alt="UW Logo">
+                        <div class="content">
+                            <p class="company-name">University of Washington, Husky Union Building</p>
+                            <p class="year">Dec. 2014-Dec. 2015</p>
+                            <p class="job-title">Student Dining Assistant</p>
+                        </div>
+                    </li>
+                    <li class="bar" class="content-box content-box--left" data-aos="fade-right" data-aos-offset="400" data-aos-delay="200">
+                        <img src="./images/meany-center-logo.jpg" alt="Meany Center Logo">
+                        <div class="content">
+                            <p class="company-name">University of Washington, Meany Center</p>
+                            <p class="year">Jan. 2016-Jun. 2017</p>
+                            <p class="job-title">Concessions Assistant & Usher</p>
+                        </div>
+                    </li>
+                    <li class="bar" class="content-box content-box--left" data-aos="fade-right" data-aos-offset="300" data-aos-delay="300">
+                        <img src="./images/formative-logo.png" alt="Meany Center Logo">
+                        <div class="content">
+                            <p class="company-name">Formative</p>
+                            <p class="year">Jan. 2017-Sep. 2017</p>
+                            <p class="job-title">Front-End & WordPress Developer</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-box content-box--right">
+                <ul>
+                    <li class="bar" class="content-box content-box--left" data-aos="fade-left" data-aos-offset="300" data-aos-delay="400">
+                        <img src="./images/extrahop-logo.png" alt="UW Logo">
+                        <div class="content">
+                            <p class="company-name">ExtraHop</p>
+                            <p class="year">Sep. 2017-Mar. 2018</p>
+                            <p class="job-title">Software Engineer Intern</p>
+                        </div>
+                    </li>
+                    <li class="bar" class="content-box content-box--left" data-aos="fade-left" data-aos-offset="200" data-aos-delay="500">
+                        <img src="./images/becu-logo.png" alt="Meany Center Logo">
+                        <div class="content">
+                            <p class="company-name">Boeing Employees' Credit Union</p>
+                            <p class="year">Jan. 2018-Jun. 2018</p>
+                            <p class="job-title">Technical Lead (Capstone Project)</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="projects">
+            <div class="content-box content-box--left" data-aos="zoom-in" data-aos-offset="500">
+                <a href="https://zicodeng.github.io/capstone-demo" target="_blank">BECU Incident Management Portal</a>
+                <a href="https://github.com/zicodeng/checkmate" target="_blank">CheckMate</a>
+                <a href="https://github.com/zicodeng/tahc-z" target="_blank">Tach-Z</a>
+                <a href="https://github.com/zicodeng/typy-bird" target="_blank">Typy Bird</a>
+                <a href="https://github.com/zicodeng/visitorex" target="_blank">Visitorex</a>
+                <a href="https://github.com/zicodeng/gomoku" target="_blank">Gomoku</a>
+                <a href="https://github.com/zicodeng/sitemon" target="_blank">Sitemon</a>
+            </div>
+            <div class="content-box content-box--right" data-aos="zoom-in" data-aos-offset="400">
+                <a href="https://github.com/zicodeng/zlab" target="_blank">ZLab</a>
+                <a href="https://github.com/zicodeng/labyrinth" target="_blank">labyrinth</a>
+                <a href="https://github.com/zicodeng/tic-tac-toe" target="_blank">Tic-Tac-Toe</a>
+                <a href="https://github.com/zicodeng/gwitter" target="_blank">Gwitter</a>
+                <a href="https://github.com/zicodeng">All</a>
+            </div>
+        </section>
         <section class="contact">
             <ul class="social-media">
-                <li class="email" data-aos="fade-up" data-aos-offset="300" data-aos-delay="100">
+                <li class="email" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-envelope"></i>
                     <a class="detail" target="_blank">zicodeng@gmail.com</a>
                 </li>
-                <li class="linkedin" data-aos="fade-up" data-aos-offset="300" data-aos-delay="200">
+                <li class="linkedin" data-aos="fade-up" data-aos-delay="200">
                     <i class="fab fa-linkedin-in"></i>
                     <a class="detail" href="https://www.linkedin.com/in/zico-deng" target="_blank">https://www.linkedin.com/in/zico-deng</a>
                 </li>
-                <li class="github" data-aos="fade-up" data-aos-offset="300" data-aos-delay="300">
+                <li class="github" data-aos="fade-up" data-aos-delay="300">
                     <i class="fab fa-github"></i>
                     <a class="detail" href="https://github.com/zicodeng" target="_blank">https://github.com/zicodeng</a>
                 </li>
             </ul>
+            <div class="footer">Created with
+                <i class="fas fa-heart"></i> by Zico Deng</div>
             <div class="floating-hearts"></div>
         </section>
     </main>
-    <footer></footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
